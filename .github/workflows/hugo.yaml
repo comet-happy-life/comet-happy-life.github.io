@@ -19,10 +19,11 @@ jobs:
           submodules: recursive 
       - name: Setup Hugo
         uses: actions/configure-pages@v4
-      - name: Install Hugo CLI
-        run: |
-          wget https://github.com/gohugoio/hugo/releases/download/v0.121.1/hugo_extended_0.121.1_linux-amd64.deb
-          sudo dpkg -i hugo_extended_0.121.1_linux-amd64.deb
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.128.0' 
+          extended: true      
       - name: Build with Hugo
         run: hugo --minify
       - name: Upload artifact
