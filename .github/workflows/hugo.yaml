@@ -2,7 +2,7 @@ name: Deploy Hugo site to Pages
 
 on:
   push:
-    branches: ["main"] 
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -16,16 +16,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive 
-      - name: Setup Hugo
-        uses: actions/configure-pages@v4
+          submodules: recursive
+          fetch-depth: 0
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.128.0' 
-          extended: true      
+          hugo-version: 'latest'
+          extended: true
+
       - name: Build with Hugo
         run: hugo --minify
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
