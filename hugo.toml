@@ -1,0 +1,4 @@
+baseURL = 'https://comet-happy-life.github.io/'
+languageCode = 'zh-cn'
+title = '我的学习笔记'
+theme = 'FixIt'
